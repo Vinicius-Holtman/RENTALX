@@ -1,0 +1,15 @@
+sudo service start docker <iniciar o docker>
+
+docker ps  Listar containers
+
+docker rm "id do container ou nome do container"
+
+docker start "nome do container"
+
+docker stop "id do container" <para a execucao do container>
+
+docker-compose up <subir containers>
+
+docker-compose down <derrubar todos os containers>
+
+docker exec -it "nome do container" /bin/bash
