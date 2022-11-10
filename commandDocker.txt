@@ -13,3 +13,5 @@ docker-compose up <subir containers>
 docker-compose down <derrubar todos os containers>
 
 docker exec -it "nome do container" /bin/bash
+
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "Verificar qual o ip que esta sendo utilizado para rodar a imagem"
