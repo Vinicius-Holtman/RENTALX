@@ -1,4 +1,4 @@
-import { Specification } from "../model/Specification";
+import { Specification } from "../entities/Specification";
 
 interface ICreateSpecificationDTO {
   name: string;
@@ -10,4 +10,4 @@ interface ISpecificationRepository {
   findByName(name: string): Specification
 }
 
-export { ISpecificationRepository, ICreateSpecificationDTO }
+export { ISpecificationRepository, ICreateSpecificationDTO };
