@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
-class ListCategoryController {
+class ListCategoriesController {
 
   handle(req: Request, res: Response) {
     const listCategoriesUseCase = container.resolve(ListCategoriesUseCase)
@@ -13,4 +13,4 @@ class ListCategoryController {
   }
 }
 
-export { ListCategoryController }
+export { ListCategoriesController }
