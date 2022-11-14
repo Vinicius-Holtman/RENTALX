@@ -11,7 +11,7 @@ export async function ensureAuthenticated(req: Request, res: Response, next: Nex
   const authHeaders = req.headers.authorization
 
   if (!authHeaders) {
-    throw new Error("Token missing")
+    throw new AppError("Token missing", 401)
   }
 
   const [, token] = authHeaders.split(" ")
@@ -23,11 +23,11 @@ export async function ensureAuthenticated(req: Request, res: Response, next: Nex
     const user = await usersRepository.findById(user_id)
 
     if (!user) {
-      throw new AppError("User does not exists!")
+      throw new AppError("User does not exists!", 401)
     }
 
     next()
   } catch {
-    throw new Error("Invalid token!")
+    throw new AppError("Invalid token!", 401)
   }
 }
