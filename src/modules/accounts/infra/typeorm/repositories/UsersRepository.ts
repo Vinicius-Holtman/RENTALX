@@ -1,46 +1,44 @@
 import { getRepository, Repository } from "typeorm";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { User } from "../../entities/User";
-import { IUsersRepository } from "../IUsersRepository";
-
-
+import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
+import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { User } from "../entities/User";
 
 class UsersRepository implements IUsersRepository {
-  private repository: Repository<User>
+  private repository: Repository<User>;
 
   constructor() {
-    this.repository = getRepository(User)
+    this.repository = getRepository(User);
   }
-  
+
   async create({
     name,
     email,
     driver_license,
     password,
     avatar,
-    id
+    id,
   }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
-      name, 
+      name,
       email,
       driver_license,
       password,
       avatar,
-      id
-    })
-    
-    await this.repository.save(user)
+      id,
+    });
+
+    await this.repository.save(user);
   }
-  
+
   async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOne({ email })
+    const user = await this.repository.findOne({ email });
     return user;
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOne(id)
-    return user
+    const user = await this.repository.findOne(id);
+    return user;
   }
 }
 
-export { UsersRepository }
+export { UsersRepository };
