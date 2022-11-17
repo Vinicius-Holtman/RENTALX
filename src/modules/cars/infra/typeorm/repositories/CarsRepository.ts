@@ -3,10 +3,6 @@ import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { getRepository, Repository } from "typeorm";
 import { Car } from "../entities/Car";
 
-
-
-
-
 class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>
 
@@ -30,6 +26,7 @@ class CarsRepository implements ICarsRepository {
     })
 
     return car;
-  }
-  
+  } 
 }
+
+export { CarsRepository }
