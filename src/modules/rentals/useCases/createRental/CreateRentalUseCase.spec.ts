@@ -4,7 +4,6 @@ import { AppError } from "@shared/errors/AppError"
 import { CreateRentalUseCase } from "./CreateRentalUseCase"
 import { DayjsDateProvider } from "@shared/container/providers/DateProvider/implementations/DayjsDateProvider"
 
-
 let createRentalUseCase: CreateRentalUseCase
 let rentalsRepositoryInMemory: RentalRepositoryInMemory
 let dayjsDateProvider: DayjsDateProvider
