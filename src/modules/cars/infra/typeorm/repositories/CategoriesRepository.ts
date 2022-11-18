@@ -22,10 +22,8 @@ class CategoriesRepository implements ICategoriesRepository {
     return await this.repository.find();
   }
 
-  async findByName(name: string): Promise<Category> {
-    const category = await this.repository.findOne({
-      where: name,
-    });
+  async findByName(name: string): Promise<Category | undefined> {
+    const category = await this.repository.findOne({ name });
     return category;
   }
 }

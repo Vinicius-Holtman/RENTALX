@@ -9,7 +9,7 @@ class CreateCategoryController {
 
     await createCategoryUseCase.execute({ name, description })
 
-    return res.status(201).send();
+    return res.status(201).send()
   }
 }
 

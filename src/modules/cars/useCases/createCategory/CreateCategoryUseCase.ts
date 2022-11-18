@@ -28,7 +28,7 @@ class CreateCategoryUseCase {
       throw new AppError("Category already axists!");
     }
 
-    await this.categoriesRepository.create({ name, description });
+    this.categoriesRepository.create({ name, description });
   }
 }
 
