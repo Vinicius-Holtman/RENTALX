@@ -5,15 +5,15 @@ import { IRentalsRepository } from "../IRentalsRepository";
 class RentalRepositoryInMemory implements IRentalsRepository {
   rentals: Rental[] = [];
 
-  async findOpenRentalByCar(card_id: string): Promise<Rental> {
+  async findOpenRentalByCar(car_id: string): Promise<Rental> {
     return this.rentals.find(
-      (rental) => rental.card_id === card_id && rental.end_date === null
+      (rental) => rental.car_id === car_id && !rental.end_date
     );
   }
 
   async findOpenRentalByUser(user_id: string): Promise<Rental> {
     return this.rentals.find(
-      (rental) => rental.user_id === user_id && rental.end_date === null
+      (rental) => rental.user_id === user_id && !rental.end_date
     );
   }
 

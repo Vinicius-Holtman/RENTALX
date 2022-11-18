@@ -1,11 +1,9 @@
-
 import { v4 as uuidV4 } from "uuid"
-
 
 class Rental {
   id: string;
 
-  card_id: string;
+  car_id: string;
 
   user_id: string;
 
