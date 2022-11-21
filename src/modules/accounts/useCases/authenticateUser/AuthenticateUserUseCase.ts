@@ -4,6 +4,7 @@ import { inject, injectable } from "tsyringe";
 import { AppError } from "@shared/errors/AppError";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository";
 
 interface IRequest {
   email: string;
@@ -22,7 +23,9 @@ interface IResponse {
 class AuthenticateUserUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private usersRepository: IUsersRepository,
+    @inject("UserTokensRepository")
+    private userTokensRepository: IUserTokensRepository
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {

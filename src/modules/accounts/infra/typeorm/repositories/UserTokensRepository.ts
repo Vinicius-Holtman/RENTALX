@@ -4,8 +4,6 @@ import { ICreateUserTokensDTO } from "@modules/accounts/dtos/ICreateUserTokensDT
 import { IUserTokensRepository } from "@modules/accounts/repositories/IUserTokensRepository"
 import { UserTokens } from "../entities/UserTokens"
 
-
-
 class UserTokensRepository implements IUserTokensRepository {
   private repository: Repository<UserTokens>
 
