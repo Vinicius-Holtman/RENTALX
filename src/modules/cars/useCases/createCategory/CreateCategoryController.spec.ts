@@ -6,8 +6,8 @@ import { hash } from "bcrypt"
 import createConnection from "@shared/infra/database"
 import { Connection } from "typeorm"
 
+let connection: Connection
 describe("Create Category Controller", () => {
-  let connection: Connection
 
   beforeAll(async () => {
     connection = await createConnection()
@@ -39,7 +39,7 @@ describe("Create Category Controller", () => {
     const response = await request(app)
     .post("/categories")
     .send({
-      name: "Name Category",
+      name: "Category test 1",
       description: "Category Description"
     })
     .set({
@@ -60,7 +60,7 @@ describe("Create Category Controller", () => {
     const response = await request(app)
     .post("/categories")
     .send({
-      name: "Name Category",
+      name: "Category test 1",
       description: "Category Description"
     })
     .set({

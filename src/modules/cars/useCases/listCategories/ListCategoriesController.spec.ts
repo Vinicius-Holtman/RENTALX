@@ -23,11 +23,6 @@ describe("Create Category Controller", () => {
     )
   })
 
-  afterAll(async () => {
-    await connection.dropDatabase();
-    await connection.close();
-  });
-
   it("should be able to list all categories", async () => {
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
@@ -39,7 +34,7 @@ describe("Create Category Controller", () => {
     await request(app)
     .post("/categories")
     .send({
-      name: "Name Category",
+      name: "Category test 2",
       description: "Category Description"
     })
     .set({
@@ -51,6 +46,11 @@ describe("Create Category Controller", () => {
     expect(response.status).toBe(200)
     expect(response.body.length).toBe(1)
     expect(response.body[0]).toHaveProperty("id")
-    expect(response.body[0].name).toEqual("Name Category")
+    expect(response.body[0].name).toEqual("Category test 2")
+  });
+
+  afterAll(async () => {
+    await connection.dropDatabase();
+    await connection.close();
   });
 })
