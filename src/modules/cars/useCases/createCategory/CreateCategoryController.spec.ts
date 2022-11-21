@@ -69,5 +69,4 @@ describe("Create Category Controller", () => {
 
     expect(response.status).toBe(400)
   })
-
 })
