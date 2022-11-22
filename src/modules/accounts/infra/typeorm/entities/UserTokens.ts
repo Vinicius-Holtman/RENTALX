@@ -11,12 +11,12 @@ class UserTokens {
   @Column()
   refresh_token: string;
 
-  @Column()
-  user_id: string;
-
   @ManyToOne(() => User)
   @JoinColumn({ name: "user_id"})
   user: User;
+  
+  @Column()
+  user_id: string;
 
   @Column()
   expires_date: Date;
@@ -25,7 +25,7 @@ class UserTokens {
   created_at: Date;
 
   constructor() {
-    if (!this.id) {
+    if(!this.id) {
       this.id = uuidV4()
     }
   }
