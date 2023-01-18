@@ -11,7 +11,7 @@ describe("Create Car", () => {
     createCarUseCase = new CreateCarUseCase(carsRepositoryInMemory);
   })
 
-  it("should be ablt to create a new car", async () => {
+  it("should be able to create a new car", async () => {
     const car = await createCarUseCase.execute({
       brand: "Brand", 
       category_id: "category", 
